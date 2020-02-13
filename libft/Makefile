@@ -7,8 +7,6 @@ SRCS	+= ft_base.c
 
 BONUS	=
 
-TESTS	=
-
 OBJS = ${SRCS:.c=.o}
 $(OBJS): EXTRA_FLAGS := -Werror -Wextra -Wall
 

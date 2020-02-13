@@ -7,13 +7,10 @@ SRCS	+= ft_base.c
 
 BONUS	=
 
-TESTS	= test/main.c
+TESTS	=
 
 OBJS = ${SRCS:.c=.o}
 $(OBJS): EXTRA_FLAGS := -Werror -Wextra -Wall
-
-OBJS_TESTS = ${TESTS:.c=.o}
-OBJS_TESTS: EXTRA_INCLUDES := -Itest
 
 OBJS_BONUS = ${BONUS:.c=.o}
 
@@ -24,10 +21,6 @@ $(NAME):	${OBJS}
 
 bonus:		${NAME} ${OBJS_BONUS}
 	ar -rcs ${NAME} ${OBJS_BONUS}
-
-test: test/main.c ${NAME} test/test.o
-	gcc -w -o test/test test/main.c ${NAME} test/test.o
-	test/test
 
 clean:
 	rm -f ${OBJS} ${OBJS_BONUS} ${OBJS_TESTS}
@@ -40,4 +33,4 @@ re:		fclean all
 .c.o:
 	gcc ${EXTRA_FLAGS} ${EXTRA_INCLUDES} -I. -c $< -o ${<:.c=.o}
 
-.PHONY:	all clean fclean re test bonus
+.PHONY:	all clean fclean re bonus

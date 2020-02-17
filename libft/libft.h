@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:51:16 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2019/11/25 14:27:45 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/02/17 15:22:08 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 								size_t len);
 int					ft_atoi(const char *str);
 char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
-char				*ft_putnbr_base(long int nbr, char *base, int sign, long int l_to);
+char				*ft_putnbr_base(long int nbr, char *base, int sign,
+																long int l_to);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *s);
 

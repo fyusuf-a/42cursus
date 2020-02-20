@@ -37,8 +37,9 @@ RUN curl -lO https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-all-
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem -subj '/CN=localhost'
 
 EXPOSE 80
+EXPOSE 443
 
 CMD service php7.3-fpm start && \
 		service mysql start && \
 		service nginx start && \
-		/bin/bash
+		sleep infinity

@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:04:08 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/08 18:21:11 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/02/20 13:52:05 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct	s_print_params {
 typedef struct	s_buff {
 	char	*buffer;
 	size_t	cursor;
+	int		mallocated;
 }				t_buff;
 
 typedef struct	s_base {
@@ -90,10 +91,17 @@ void			initialize_format(t_format *format);
 ** ft_printf.c
 */
 
+int				ft_printf(char *format, ...);
+int				ft_dprintf(int fd, char *format, ...);
+
+/*
+** ft_printf2.c
+*/
+
 int				get_g_return_value(void);
 void			load_buffer(char c);
 void			flush_buffer();
-int				ft_printf(char *format, ...);
+int				ft_zprintf(int fd, char *format, va_list *args);
 
 /*
 ** parse_format.c

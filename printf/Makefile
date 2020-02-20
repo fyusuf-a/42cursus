@@ -1,7 +1,7 @@
 NAME	= libftprintf.a
 
-SRCS		= ft_printf.c parse_format.c parse_format2.c print.c print_str.c print_int.c print_int2.c utilities.c utilities2.c
-SRCS	 += format.c print_nothing.c print_double.c print_double2.c print_scientific.c print_g.c
+SRCS		= ft_printf.c ft_printf2.c parse_format.c parse_format2.c print.c print_str.c print_int.c print_int2.c utilities.c
+SRCS	 += utilities2.c format.c print_nothing.c print_double.c print_double2.c print_scientific.c print_g.c
 OBJS		= ${SRCS:.c=.o}
 $(OBJS): EXTRA_ARGS := -Werror -Wextra -Wall
 

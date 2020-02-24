@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 13:08:14 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/13 16:08:07 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/02/20 14:23:02 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,19 @@ static void
 	int	len;
 
 	params->len_padding = 0;
-	len = 1;
-	len += sign;
+	len = sign;
 	len += (format->plus && !sign ? 1 : 0);
 	len += 1;
 	if (format->precision == -1)
+	{
+		len += 1;
 		len += 6;
+	}
 	else if (format->precision > 0)
+	{
+		len += 1;
 		len += format->precision;
+	}
 	len += 2 + (first_digit_exponent(x) >= 100 ? 3 : 2);
 	if (format->width != -1 && format->width > len)
 		params->len_padding = format->width - len;
@@ -56,7 +61,7 @@ static void
 	exponent = first_digit_exponent(x);
 	x = x * power(10, -exponent);
 	load_buffer('0' + (int)x);
-	if (format->precision > 0)
+	if (format->precision == -1 || format->precision > 0)
 		load_buffer('.');
 	i = 0;
 	while (i < (format->precision == -1 ? 6 : format->precision))

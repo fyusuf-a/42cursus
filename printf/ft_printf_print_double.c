@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 19:02:46 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/08 16:50:50 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/02/20 14:16:35 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void
 	{
 		format->padding = ' ';
 		format->type = STRING;
+		format->precision = 4;
 		if (x != x)
 			print_str_acc("nan", format);
 		else if (format->plus && x > 0)

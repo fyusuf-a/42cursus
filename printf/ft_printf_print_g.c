@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 18:31:16 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/08 16:49:43 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/02/20 14:35:04 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void
 	*x = *x < 0 ? -abs_value : abs_value;
 	*max_power = first_digit_exponent(abs_value);
 	y = abs_value * power(10, -*max_power);
-	*min_power = *max_power - number_of_decimals_double(y, digit_number) + 1;
+	*min_power = *max_power - number_of_decimals_double(y, digit_number);
 }
 
 void

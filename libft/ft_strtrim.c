@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 19:37:59 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2019/11/10 16:42:28 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/05 15:15:06 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char		*ft_strtrim(char const *s, char const *set)
 	if (begin == l)
 		return (ft_strdup(""));
 	end = l - 1;
-	while (end >= 0 && is_in(s[end], set))
+	while (is_in(s[end], set))
 		end--;
 	return (ft_substr(s, begin, end - begin + 1));
 }

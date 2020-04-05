@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 19:45:29 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2019/11/25 14:49:44 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/05 15:15:34 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,11 @@ static void	ft_putnbr_base_fd_acc(long long n, char *alphabet, int l, int fd)
 
 void		ft_putnbr_base_fd(long long n, char *alphabet, int fd)
 {
-	int	sign;
 	int	l;
 
 	l = check_base(alphabet);
 	if (!(l = check_base(alphabet)))
 		return ;
-	sign = 0;
-	if (n < 0)
-		sign = 1;
 	if (n == LLONG_MIN)
 	{
 		ft_putchar_fd('-', fd);

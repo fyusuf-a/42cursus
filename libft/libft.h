@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:51:16 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/17 15:22:08 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/05 16:48:22 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,4 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void*),
 								void (*del)(void*));
 t_list				**ft_lstdup(t_list *lst);
 
-/*
-** Additional functions
-*/
-
-void				ft_putunsignedlong_fd(unsigned long long n, int fd);
-void				ft_putlong_fd(long long n, int fd);
-int					smallest_length(long long number, long long l);
-void				ft_putnbr_base_fd(long long n, char *alphabet, int fd);
 #endif

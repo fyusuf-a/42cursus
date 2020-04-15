@@ -6,11 +6,36 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 18:16:22 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2019/11/22 11:47:52 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2019/11/11 15:22:45 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static t_list	**ft_lstdup(t_list *lst)
+{
+	t_list	**ret;
+	t_list	**ptr;
+
+	if (!(ret = (t_list**)malloc(sizeof(t_list*))))
+		return (NULL);
+	if (lst)
+	{
+		if (!(*ret = (t_list*)malloc(sizeof(t_list))))
+			return (NULL);
+		(*ret)->content = lst->content;
+		if (!(ptr = ft_lstdup(lst->next)))
+		{
+			free(*ret);
+			free(ret);
+			return (NULL);
+		}
+		(*ret)->next = *ptr;
+	}
+	else
+		*ret = NULL;
+	return (ret);
+}
 
 static void		ft_lstiter_acc(t_list *lst, void *(*f)(void *))
 {

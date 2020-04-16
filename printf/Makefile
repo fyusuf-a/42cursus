@@ -31,7 +31,7 @@ $(NAME):	${OBJS}
 	gcc ${EXTRA_ARGS} -I. -c $< -o ${<:.c=.o}
 
 test:		${NAME}
-	gcc ${EXTRA_ARGS} -I. -o test/test ${NAME} test/main.c
+	gcc ${EXTRA_ARGS} -I. -o test/test test/main.c ${NAME}
 	test/test
 
 .PHONY:	all clean fclean re test bonus libft

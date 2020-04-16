@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_format.c                                     :+:      :+:    :+:   */
+/*   ft_printf_parse_format.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 14:43:20 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/07 16:48:30 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:17:30 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static void
-	parse_flags(t_format *format, t_buff *str)
+	parse_flags(t_ft_printf_format *format, t_ft_printf_buff *str)
 {
 	char c;
 
@@ -34,12 +34,14 @@ static void
 }
 
 static int
-	parse_width(t_format *format, va_list *args, t_buff *str)
+	parse_width(t_ft_printf_format *format, va_list *args,
+			t_ft_printf_buff *str)
 {
 	int				w;
 
-	if ((format->width = ft_atoi_strict(str->buffer + str->cursor)) != -1)
-		advance_cursor(str, ft_ilen(format->width, 10));
+	if ((format->width =
+				ft_printf_atoi_strict(str->buffer + str->cursor)) != -1)
+		ft_printf_advance_cursor(str, ft_printf_ilen(format->width, 10));
 	if (str->buffer[str->cursor] == '*')
 	{
 		w = va_arg(*args, int);
@@ -59,7 +61,8 @@ static int
 }
 
 static void
-	parse_precision(t_format *format, va_list *args, t_buff *str)
+	parse_precision(t_ft_printf_format *format, va_list *args,
+			t_ft_printf_buff *str)
 {
 	if (str->buffer[str->cursor] == '*')
 	{
@@ -69,10 +72,10 @@ static void
 		str->cursor++;
 	}
 	else if ((format->precision =
-					ft_atoi_strict(str->buffer + str->cursor)) == -1)
+					ft_printf_atoi_strict(str->buffer + str->cursor)) == -1)
 		format->precision = 0;
 	else
-		advance_cursor(str, ft_ilen(format->precision, 10));
+		ft_printf_advance_cursor(str, ft_printf_ilen(format->precision, 10));
 }
 
 /*
@@ -80,7 +83,8 @@ static void
 */
 
 int
-	parse_format(t_format *format, va_list *args, t_buff *str)
+	ft_printf_parse_format(t_ft_printf_format *format,
+			va_list *args, t_ft_printf_buff *str)
 {
 	parse_flags(format, str);
 	if (parse_width(format, args, str) < 0)
@@ -92,8 +96,8 @@ int
 	}
 	else if (!str->buffer[str->cursor])
 		return (-1);
-	parse_modifier(format, str);
-	parse_type(format, str);
+	ft_printf_parse_modifier(format, str);
+	ft_printf_parse_type(format, str);
 	if (format->padding == '0' && format->precision >= 0
 				&& format->type != DOUBLE && format->type != SCIENTIFIC
 				&& format->type != G)

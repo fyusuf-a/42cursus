@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format.c                                           :+:      :+:    :+:   */
+/*   ft_printf_format.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 13:24:02 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/01/28 13:18:41 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:25:51 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int
-	flush_format(t_buff *str)
+	ft_printf_flush_format(t_ft_printf_buff *str)
 {
 	char c;
 
 	while ((c = str->buffer[str->cursor]) && c != '%')
 	{
-		load_buffer(c);
+		ft_printf_load_buffer(c);
 		str->cursor++;
 	}
 	if (!c)
@@ -29,7 +29,7 @@ int
 }
 
 void
-	initialize_format(t_format *format)
+	ft_printf_initialize_format(t_ft_printf_format *format)
 {
 	format->minus = 0;
 	format->plus = 0;

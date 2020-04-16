@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_format2.c                                    :+:      :+:    :+:   */
+/*   ft_printf_parse_format2.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 20:30:03 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/05 18:32:52 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:18:17 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 void
-	parse_modifier(t_format *format, t_buff *st)
+	ft_printf_parse_modifier(t_ft_printf_format *format, t_ft_printf_buff *st)
 {
 	if (st->buffer[st->cursor] == 'l')
 	{
@@ -28,7 +28,7 @@ void
 }
 
 void
-	parse_type(t_format *format, t_buff *st)
+	ft_printf_parse_type(t_ft_printf_format *format, t_ft_printf_buff *st)
 {
 	char c;
 

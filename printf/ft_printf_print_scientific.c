@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_scientific.c                                 :+:      :+:    :+:   */
+/*   ft_printf_print_scientific.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 13:08:14 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/20 14:23:02 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:09:01 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static void
-	load_params(t_print_params *params, const t_format *format,
-								double x, int sign)
+	load_params(t_ft_printf_print_params *params,
+			const t_ft_printf_format *format, double x, int sign)
 {
 	int	len;
 
@@ -32,13 +32,13 @@ static void
 		len += 1;
 		len += format->precision;
 	}
-	len += 2 + (first_digit_exponent(x) >= 100 ? 3 : 2);
+	len += 2 + (ft_printf_first_digit_exponent(x) >= 100 ? 3 : 2);
 	if (format->width != -1 && format->width > len)
 		params->len_padding = format->width - len;
 }
 
 static void
-	load_format(t_format *format, int exponent)
+	load_format(t_ft_printf_format *format, int exponent)
 {
 	format->minus = 0;
 	format->plus = 1;
@@ -51,65 +51,65 @@ static void
 }
 
 static void
-	print_scientific_absolute_value(double x, const t_format *format)
+	print_scientific_absolute_value(double x, const t_ft_printf_format *format)
 {
-	int			exponent;
-	int			i;
-	t_integer	n;
-	t_format	format_exponent;
+	int					exponent;
+	int					i;
+	t_ft_printf_integer	n;
+	t_ft_printf_format	format_exponent;
 
-	exponent = first_digit_exponent(x);
-	x = x * power(10, -exponent);
-	load_buffer('0' + (int)x);
+	exponent = ft_printf_first_digit_exponent(x);
+	x = x * ft_printf_power(10, -exponent);
+	ft_printf_load_buffer('0' + (int)x);
 	if (format->precision == -1 || format->precision > 0)
-		load_buffer('.');
+		ft_printf_load_buffer('.');
 	i = 0;
 	while (i < (format->precision == -1 ? 6 : format->precision))
 	{
 		x = 10 * (x - (int)x);
-		load_buffer('0' + (int)x);
+		ft_printf_load_buffer('0' + (int)x);
 		i++;
 	}
-	load_buffer('e');
+	ft_printf_load_buffer('e');
 	n.abs = exponent >= 0 ? exponent : -exponent;
 	n.sign = exponent >= 0 ? 0 : 1;
 	load_format(&format_exponent, exponent);
-	print_int_acc(&n, &format_exponent);
+	ft_printf_print_int_acc(&n, &format_exponent);
 }
 
 static void
-	print_sign(int sign, const t_format *format)
+	print_sign(int sign, const t_ft_printf_format *format)
 {
-	sign ? load_buffer('-') : 0;
-	!sign && format->plus ? load_buffer('+') : 0;
+	sign ? ft_printf_load_buffer('-') : 0;
+	!sign && format->plus ? ft_printf_load_buffer('+') : 0;
 }
 
 void
-	print_scientific_acc(double x, const t_format *format)
+	ft_printf_print_scientific_acc(double x, const t_ft_printf_format *format)
 {
-	t_print_params	params;
-	int				sign;
-	int				exponent;
+	t_ft_printf_print_params	params;
+	int							sign;
+	int							exponent;
 
 	sign = x < 0.0 ? 1 : 0;
 	x = x < 0.0 ? -x : x;
-	exponent = first_digit_exponent(x);
-	round_double(&x,
+	exponent = ft_printf_first_digit_exponent(x);
+	ft_printf_round_double(&x,
 			(format->precision == -1 ? 6 : format->precision) - exponent);
 	load_params(&params, format, x, sign);
 	if (format->minus)
 	{
 		print_sign(sign, format);
 		print_scientific_absolute_value(x, format);
-		print_padding(format, params.len_padding);
+		ft_printf_print_padding(format, params.len_padding);
 	}
 	else
 	{
 		if (format->padding != '0')
-			print_padding(format, params.len_padding);
+			ft_printf_print_padding(format, params.len_padding);
 		print_sign(sign, format);
 		if (format->padding == '0')
-			print_padding(format, params.len_padding);
+			ft_printf_print_padding(format, params.len_padding);
 		print_scientific_absolute_value(x, format);
 	}
 }

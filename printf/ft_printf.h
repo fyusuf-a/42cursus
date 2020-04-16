@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:04:08 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 14:05:02 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:20:37 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #  define BUFFER_SIZE 9999
 # endif
 
-typedef enum	e_type
+typedef enum	e_ft_printf_type
 {
 	UNKNOWN_TYPE,
 	NOTHING,
@@ -38,159 +38,173 @@ typedef enum	e_type
 	DOUBLE,
 	SCIENTIFIC,
 	G
-}				t_type;
+}				t_ft_printf_type;
 
-typedef enum	e_modifier
+typedef enum	e_ft_printf_modifier
 {
 	NO_MODIFIER,
 	LONG,
 	LONG_LONG
-}				t_modifier;
+}				t_ft_printf_modifier;
 
-typedef struct	s_format {
-	int			minus;
-	int			plus;
-	int			sharp;
-	char		padding;
-	int			width;
-	int			precision;
-	t_modifier	modifier;
-	t_type		type;
-}				t_format;
+typedef struct	s_ft_printf_format {
+	int						minus;
+	int						plus;
+	int						sharp;
+	char					padding;
+	int						width;
+	int						precision;
+	t_ft_printf_modifier	modifier;
+	t_ft_printf_type		type;
+}				t_ft_printf_format;
 
-typedef struct	s_print_params {
+typedef struct	s_ft_printf_print_params {
 	int		len_proper;
 	int		len_padding;
 	int		len_zeros;
-}				t_print_params;
+}				t_ft_printf_print_params;
 
-typedef struct	s_buff {
+typedef struct	s_ft_printf_buff {
 	char	*buffer;
 	size_t	cursor;
-}				t_buff;
+}				t_ft_printf_buff;
 
-typedef struct	s_base {
+typedef struct	s_ft_printf_base {
 	char	*str;
 	size_t	length;
-}				t_base;
+}				t_ft_printf_base;
 
-typedef struct	s_integer {
+typedef struct	s_ft_printf_integer {
 	int					sign;
 	long long unsigned	abs;
-}				t_integer;
+}				t_ft_printf_integer;
 
 /*
-** format.c
+** ft_printf_format.c
 */
 
-int				flush_format(t_buff *str);
-void			initialize_format(t_format *format);
+int				ft_printf_flush_format(t_ft_printf_buff *str);
+void			ft_printf_initialize_format(t_ft_printf_format *format);
 
 /*
-** ft_printf.c
+** ft_printf_main.c
 */
 
 int				ft_printf(char *format, ...);
 int				ft_dprintf(int fd, char *format, ...);
 
 /*
-** ft_printf2.c
+** ft_printf_main2.c
 */
 
-int				get_g_return_value(void);
-void			load_buffer(char c);
-void			flush_buffer();
-int				ft_zprintf(int fd, char *format, va_list *args);
+int				ft_printf_get_g_return_value(void);
+void			ft_printf_load_buffer(char c);
+void			ft_printf_flush_buffer();
+int				ft_printf_zprintf(int fd, char *format, va_list *args);
 
 /*
-** parse_format.c
+** ft_printf_parse_format.c
 */
 
-int				parse_format(t_format *format, va_list *list, t_buff *str);
+int				ft_printf_parse_format(t_ft_printf_format *format,
+va_list *list, t_ft_printf_buff *str);
 
 /*
-** parse_format2.c
+** ft_printf_parse_format2.c
 */
 
-void			parse_modifier(t_format *format, t_buff *st);
-void			parse_type(t_format *format, t_buff *st);
+void			ft_printf_parse_modifier(t_ft_printf_format *format,
+		t_ft_printf_buff *st);
+void			ft_printf_parse_type(t_ft_printf_format *format,
+		t_ft_printf_buff *st);
 
 /*
-** print.c
+** ft_printf_print.c
 */
 
-void			print_padding(const t_format *format, int times);
-void			print_arg(va_list *args, t_format *format, t_buff *str);
+void			ft_printf_print_padding(const t_ft_printf_format *format,
+		int times);
+void			ft_printf_print_arg(va_list *args,
+		t_ft_printf_format *format, t_ft_printf_buff *str);
 
 /*
-** print_str.c
+** ft_printf_print_str.c
 */
 
-void			print_char(va_list *args, t_format *format, t_buff *str);
-void			print_str_acc(char *str, const t_format *format);
-void			print_str(va_list *args, t_format *format);
+void			ft_printf_print_char(va_list *args,
+		t_ft_printf_format *format, t_ft_printf_buff *str);
+void			ft_printf_print_str_acc(char *str,
+		const t_ft_printf_format *format);
+void			ft_printf_print_str(va_list *args, t_ft_printf_format *format);
 
 /*
-** print_int.c
+** ft_printf_print_int.c
 */
 
-void			print_int(va_list *args, t_format *format);
+void			ft_printf_print_int(va_list *args, t_ft_printf_format *format);
 
 /*
-** print_int2.c
+** ft_printf_print_int2.c
 */
 
-void			print_int_acc(t_integer *n, const t_format *format);
+void			ft_printf_print_int_acc(t_ft_printf_integer *n,
+		const t_ft_printf_format *format);
 
 /*
-** print_nothing.c
+** ft_printf_print_nothing.c
 */
 
-void			print_nothing(va_list *args);
+void			ft_printf_print_nothing(va_list *args);
 
 /*
-**				utilities.c
+** ft_printf_utilities.c
 */
 
-int				ft_atoi_strict(const char *str);
-void			advance_cursor(t_buff *str, int n);
-size_t			ft_ilen(long long unsigned number, long long unsigned l_base);
-void			print_zeros(size_t times);
-void			print_zerox(void);
+int				ft_printf_atoi_strict(const char *str);
+void			ft_printf_advance_cursor(t_ft_printf_buff *str, int n);
+size_t			ft_printf_ilen(long long unsigned number,
+		long long unsigned l_base);
+void			ft_printf_print_zeros(size_t times);
+void			ft_printf_print_zerox(void);
 
 /*
-**				utilities2.c
+**	ft_printf_utilities2.c
 */
-void			fill_base(t_base *base, const t_format *format);
+void			ft_printf_fill_base(t_ft_printf_base *base,
+		const t_ft_printf_format *format);
 
 /*
-**				print_double.c
+**	ft_printf_print_double.c
 */
 
-void			print_double(va_list *args, t_format *format);
-void			print_double_acc(double x, const t_format *format);
+void			ft_printf_print_double(va_list *args,
+		t_ft_printf_format *format);
+void			ft_printf_print_double_acc(double x,
+		const t_ft_printf_format *format);
 
 /*
-**				print_double2.c
+**  ft_printf_print_double2.c
 */
 
-double			power(double x, int exp);
-int				first_digit_exponent(double x);
-void			print_decimal_part(double x, int precision);
-void			print_integer_part(unsigned long long n);
-void			round_double(double *x, int precision);
+double			ft_printf_power(double x, int exp);
+int				ft_printf_first_digit_exponent(double x);
+void			ft_printf_print_decimal_part(double x, int precision);
+void			ft_printf_print_integer_part(unsigned long long n);
+void			ft_printf_round_double(double *x, int precision);
 
 /*
-**				print_scientific.c
+**  ft_printf_print_scientific.c
 */
 
-void			print_scientific_acc(double x, const t_format *format);
+void			ft_printf_print_scientific_acc(double x,
+		const t_ft_printf_format *format);
 
 /*
-**				print_g.c
+**  ft_printf_print_g.c
 */
 
-void			print_g(double x, const t_format *format);
-void			print_g_acc(double x, const t_format *format);
+void			ft_printf_print_g(double x, const t_ft_printf_format *format);
+void			ft_printf_print_g_acc(double x,
+		const t_ft_printf_format *format);
 
 #endif

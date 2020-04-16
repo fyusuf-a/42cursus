@@ -122,14 +122,11 @@ int		main()
 	printf("Testing args : \"%%6i, %%6d, %%6d, %%6d, %%6d, %%6d\", i, j, k, l, m, c"); DO_TEST("%6i, %6d, %6d, %6d, %6d, %6d", i, j, k, l, m, c); //T9
 	printf("Testing args : \"%%7i, %%7d, %%7d, %%7d, %%7d, %%7d\", i, j, k, l, m, c"); DO_TEST("%7i, %7d, %7d, %7d, %7d, %7d", i, j, k, l, m, c); //T10
 	printf("Testing args : \"%%8i, %%8d, %%8d, %%8d, %%8d, %%8d\", i, j, k, l, m, c"); DO_TEST("%8i, %8d, %8d, %8d, %8d, %8d", i, j, k, l, m, c); //T11
-	printf("Testing args : \"%%0.i, %%0.d, %%0.d, %%0.d, %%0.d, %%0.d\", i, j, k, l, m, c"); DO_TEST("%0.i, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c); //T12
 	printf("Testing args : \"%%.0i, %%.0d, %%.0d, %%.0d, %%.0d, %%.0d\", i, j, k, l, m, c"); DO_TEST("%.0i, %.0d, %.0d, %.0d, %.0d, %.0d", i, j, k, l, m, c); //T13
-	printf("Testing args : \"%%0.0i, %%0.0d, %%0.0d, %%0.0d, %%0.0d, %%0.0d\", i, j, k, l, m, c"); DO_TEST("%0.0i, %0.0d, %0.0d, %0.0d, %0.0d, %0.0d", i, j, k, l, m, c); //T14
 	printf("Testing args : \"%%-.i, %%-.d, %%-.d, %%-.d, %%-.d, %%-.d\", i, j, k, l, m, c"); DO_TEST("%-.i, %-.d, %-.d, %-.d, %-.d, %-.d", i, j, k, l, m, c); //T17
 	printf("Testing args : \"%%-.0i, %%-.0d, %%-.0d, %%-.0d, %%-.0d, %%-.0d\", i, j, k, l, m, c"); DO_TEST("%-.0i, %-.0d, %-.0d, %-.0d, %-.0d, %-.0d", i, j, k, l, m, c); //T18
 	printf("Testing args : \"%%-i, %%-d, %%-d, %%-d, %%-d, %%-d\", i, j, k, l, m, c"); DO_TEST("%-i, %-d, %-d, %-d, %-d, %-d", i, j, k, l, m, c); //T19
 	printf("Testing args : \"%%.i, %%.d, %%.d, %%.d, %%.d, %%.d\", i, j, k, l, m, c"); DO_TEST("%.i, %.d, %.d, %.d, %.d, %.d", i, j, k, l, m, c); //T20
-	printf("Testing args : \"%%00i, %%00d, %%00d, %%00d, %%00d, %%00d\", i, j, k, l, m, c"); DO_TEST("%00i, %00d, %00d, %00d, %00d, %00d", i, j, k, l, m, c); //T22
 	printf("Testing args : \"%%1.i, %%1.d, %%1.d, %%1.d, %%1.d, %%1.d\", i, j, k, l, m, c"); DO_TEST("%1.i, %1.d, %1.d, %1.d, %1.d, %1.d", i, j, k, l, m, c); //T23
 	printf("Testing args : \"%%.1i, %%.1d, %%.1d, %%.1d, %%.1d, %%.1d\", i, j, k, l, m, c"); DO_TEST("%.1i, %.1d, %.1d, %.1d, %.1d, %.1d", i, j, k, l, m, c); //T24
 	printf("Testing args : \"%%1.1i, %%1.1d, %%1.1d, %%1.1d, %%1.1d, %%1.1d\", i, j, k, l, m, c"); DO_TEST("%1.1i, %1.1d, %1.1d, %1.1d, %1.1d, %1.1d", i, j, k, l, m, c); //T25
@@ -155,7 +152,6 @@ int		main()
 		{
 			printf("Testing args : \"%%*.*i, %%*.*d, %%*.*d, %%*.*d, %%*.*d, %%*.*d\", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c"); DO_TEST("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c);
 			printf("Testing args : \"%%-*.*i, %%-*.*d, %%-*.*d, %%-*.*d, %%-*.*d, %%-*.*d\", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c"); DO_TEST("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c);
-			printf("Testing args : \"%%0*.*i, %%0*.*d, %%0*.*d, %%0*.*d, %%0*.*d, %%0*.*d\", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c"); DO_TEST("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c);
 			b++;
 		}
 		a++;
@@ -209,7 +205,6 @@ int		main()
 		while (b < 5)
 		{
 			printf("Testing args : \"%%*.*u, %%*.*x, %%*.*X, %%*.*u, %%*.*x, %%*.*X, %%*.*u, %%*.*x, %%*.*X, %%*.*u, %%*.*x, %%*.*X, %%*.*u, %%*.*x, %%*.*X, %%*.*u, %%*.*x, %%*.*X, %%*.*u, %%*.*x, %%*.*X, %%*.*u, %%*.*x, %%*.*X\", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e"); DO_TEST("%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e);
-			printf("Testing args : \"%%0*.*u, %%0*.*x, %%0*.*X, %%0*.*u, %%0*.*x, %%0*.*X, %%0*.*u, %%0*.*x, %%0*.*X, %%0*.*u, %%0*.*x, %%0*.*X, %%0*.*u, %%0*.*x, %%0*.*X, %%0*.*u, %%0*.*x, %%0*.*X, %%0*.*u, %%0*.*x, %%0*.*X, %%0*.*u, %%0*.*x, %%0*.*X\", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e"); DO_TEST("%0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e);
 			printf("Testing args : \"%%-*.*u, %%-*.*x, %%-*.*X, %%-*.*u, %%-*.*x, %%-*.*X, %%-*.*u, %%-*.*x, %%-*.*X, %%-*.*u, %%-*.*x, %%-*.*X, %%-*.*u, %%-*.*x, %%-*.*X, %%-*.*u, %%-*.*x, %%-*.*X, %%-*.*u, %%-*.*x, %%-*.*X, %%-*.*u, %%-*.*x, %%-*.*X\", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e"); DO_TEST("%-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X, %-*.*u, %-*.*x, %-*.*X", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e);
 			b++;
 		}
@@ -242,7 +237,6 @@ int		main()
 	printf("Testing args : \"%%c, %%-c, %%12c, %%-3c, %%-1c, %%1c, %%-2c, %%-4c, %%5c, %%3c, %%-*c, %%-*c, %%*c, %%*c\", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0"); DO_TEST("%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0);
 //	printf("Testing args : \"%%-2s, %%-4s, %%-2.4s, %%-8.12s, %%3s, %%8s, %%---2s, %%.*s, %%.0s, %%.1s, %%.2s, %%.4s, %%.8s\", NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL"); DO_TEST("%-2s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
 	printf("Testing args : \"(null)\""); DO_TEST("(null)");
-	printf("Testing args : \"\""); DO_TEST("");
 	//TESTS_ENZO
 
 	printf("Testing args : \"%%d\", 0"); DO_TEST("%d", 0);
@@ -588,7 +582,6 @@ int		main()
 	printf("Testing args : \"%%*c\", 3, 0"); DO_TEST("%*c", 3, 0);
 	printf("Testing args : \"%%*c\", 10, 0"); DO_TEST("%*c", 10, 0);
 	printf("Testing args : \"%%*c\", -15, 0"); DO_TEST("%*c", -15, 0);
-	printf("Testing args : \"%%.c\", 0"); DO_TEST("%.c", 0);
 	printf("Testing args : \"%%-c\", 'a'"); DO_TEST("%-c", 'a');
 	printf("Testing args : \"%%3c\", 'a'"); DO_TEST("%3c", 'a');
 	printf("Testing args : \"%%10c\", 'a'"); DO_TEST("%10c", 'a');
@@ -596,7 +589,6 @@ int		main()
 	printf("Testing args : \"%%*c\", 3, 'a'"); DO_TEST("%*c", 3, 'a');
 	printf("Testing args : \"%%*c\", 10, 'a'"); DO_TEST("%*c", 10, 'a');
 	printf("Testing args : \"%%*c\", -15, 'a'"); DO_TEST("%*c", -15, 'a');
-	printf("Testing args : \"%%.c\", 'a'"); DO_TEST("%.c", 'a');
 	printf("Testing args : \"%%-c\", 'b'"); DO_TEST("%-c", 'b');
 	printf("Testing args : \"%%3c\", 'b'"); DO_TEST("%3c", 'b');
 	printf("Testing args : \"%%10c\", 'b'"); DO_TEST("%10c", 'b');
@@ -604,7 +596,6 @@ int		main()
 	printf("Testing args : \"%%*c\", 3, 'b'"); DO_TEST("%*c", 3, 'b');
 	printf("Testing args : \"%%*c\", 10, 'b'"); DO_TEST("%*c", 10, 'b');
 	printf("Testing args : \"%%*c\", -15, 'b'"); DO_TEST("%*c", -15, 'b');
-	printf("Testing args : \"%%.c\", 'b'"); DO_TEST("%.c", 'b');
 	printf("Testing args : \"%%-c\", '9'"); DO_TEST("%-c", '9');
 	printf("Testing args : \"%%3c\", '9'"); DO_TEST("%3c", '9');
 	printf("Testing args : \"%%10c\", '9'"); DO_TEST("%10c", '9');
@@ -612,7 +603,6 @@ int		main()
 	printf("Testing args : \"%%*c\", 3, '9'"); DO_TEST("%*c", 3, '9');
 	printf("Testing args : \"%%*c\", 10, '9'"); DO_TEST("%*c", 10, '9');
 	printf("Testing args : \"%%*c\", -15, '9'"); DO_TEST("%*c", -15, '9');
-	printf("Testing args : \"%%.c\", '9'"); DO_TEST("%.c", '9');
 	printf("Testing args : \"%%-c\", 227"); DO_TEST("%-c", 227);
 	printf("Testing args : \"%%3c\", 227"); DO_TEST("%3c", 227);
 	printf("Testing args : \"%%10c\", 227"); DO_TEST("%10c", 227);
@@ -620,7 +610,6 @@ int		main()
 	printf("Testing args : \"%%*c\", 3, 227"); DO_TEST("%*c", 3, 227);
 	printf("Testing args : \"%%*c\", 10, 227"); DO_TEST("%*c", 10, 227);
 	printf("Testing args : \"%%*c\", -15, 227"); DO_TEST("%*c", -15, 227);
-	printf("Testing args : \"%%.c\", 227"); DO_TEST("%.c", 227);
 	printf("Testing args : \"%%-s\", \"\""); DO_TEST("%-s", "");
 	printf("Testing args : \"%%3s\", \"\""); DO_TEST("%3s", "");
 	printf("Testing args : \"%%10s\", \"\""); DO_TEST("%10s", "");
@@ -976,7 +965,6 @@ int		main()
 	printf("Testing args : \"%%*p\", 3, (void*)-1"); DO_TEST("%*p", 3, (void*)-1);
 	printf("Testing args : \"%%*p\", 10, (void*)-1"); DO_TEST("%*p", 10, (void*)-1);
 	printf("Testing args : \"%%*p\", -15, (void*)-1"); DO_TEST("%*p", -15, (void*)-1);
-	printf("Testing args : \"%%.p\", (void*)-1"); DO_TEST("%.p", (void*)-1);
 	printf("Testing args : \"%%-p\", (void*)30"); DO_TEST("%-p", (void*)30);
 	printf("Testing args : \"%%3p\", (void*)30"); DO_TEST("%3p", (void*)30);
 	printf("Testing args : \"%%10p\", (void*)30"); DO_TEST("%10p", (void*)30);
@@ -984,7 +972,6 @@ int		main()
 	printf("Testing args : \"%%*p\", 3, (void*)30"); DO_TEST("%*p", 3, (void*)30);
 	printf("Testing args : \"%%*p\", 10, (void*)30"); DO_TEST("%*p", 10, (void*)30);
 	printf("Testing args : \"%%*p\", -15, (void*)30"); DO_TEST("%*p", -15, (void*)30);
-	printf("Testing args : \"%%.p\", (void*)30"); DO_TEST("%.p", (void*)30);
 	printf("Testing args : \"%%-p\", (void*)14785478"); DO_TEST("%-p", (void*)14785478);
 	printf("Testing args : \"%%3p\", (void*)14785478"); DO_TEST("%3p", (void*)14785478);
 	printf("Testing args : \"%%10p\", (void*)14785478"); DO_TEST("%10p", (void*)14785478);
@@ -992,15 +979,6 @@ int		main()
 	printf("Testing args : \"%%*p\", 3, (void*)14785478"); DO_TEST("%*p", 3, (void*)14785478);
 	printf("Testing args : \"%%*p\", 10, (void*)14785478"); DO_TEST("%*p", 10, (void*)14785478);
 	printf("Testing args : \"%%*p\", -15, (void*)14785478"); DO_TEST("%*p", -15, (void*)14785478);
-	printf("Testing args : \"%%.p\", (void*)14785478"); DO_TEST("%.p", (void*)14785478);
-	printf("Testing args : \"%%*%%\", 0"); DO_TEST("%*%", 0);
-	printf("Testing args : \"%%*%%\", 3"); DO_TEST("%*%", 3);
-	printf("Testing args : \"%%*%%\", 10"); DO_TEST("%*%", 10);
-	printf("Testing args : \"%%*%%\", -15"); DO_TEST("%*%", -15);
-	printf("Testing args : \"%%.*%%\", 0"); DO_TEST("%.*%", 0);
-	printf("Testing args : \"%%.*%%\", 3"); DO_TEST("%.*%", 3);
-	printf("Testing args : \"%%.*%%\", 10"); DO_TEST("%.*%", 10);
-	printf("Testing args : \"%%.*%%\", -15"); DO_TEST("%.*%", -15);
 	printf("Testing args : \"%%03d\", 0"); DO_TEST("%03d", 0);
 	printf("Testing args : \"%%010d\", 0"); DO_TEST("%010d", 0);
 	printf("Testing args : \"%%*.d\", 0, 0"); DO_TEST("%*.d", 0, 0);
@@ -1613,26 +1591,6 @@ int		main()
 	printf("Testing args : \"%%*.*i\", -15, 3, 2147483647"); DO_TEST("%*.*i", -15, 3, 2147483647);
 	printf("Testing args : \"%%*.*i\", -15, 10, 2147483647"); DO_TEST("%*.*i", -15, 10, 2147483647);
 	printf("Testing args : \"%%*.*i\", -15, -15, 2147483647"); DO_TEST("%*.*i", -15, -15, 2147483647);
-	printf("Testing args : \"%%*.c\", 0, 0"); DO_TEST("%*.c", 0, 0);
-	printf("Testing args : \"%%*.c\", 3, 0"); DO_TEST("%*.c", 3, 0);
-	printf("Testing args : \"%%*.c\", 10, 0"); DO_TEST("%*.c", 10, 0);
-	printf("Testing args : \"%%*.c\", -15, 0"); DO_TEST("%*.c", -15, 0);
-	printf("Testing args : \"%%*.c\", 0, 'a'"); DO_TEST("%*.c", 0, 'a');
-	printf("Testing args : \"%%*.c\", 3, 'a'"); DO_TEST("%*.c", 3, 'a');
-	printf("Testing args : \"%%*.c\", 10, 'a'"); DO_TEST("%*.c", 10, 'a');
-	printf("Testing args : \"%%*.c\", -15, 'a'"); DO_TEST("%*.c", -15, 'a');
-	printf("Testing args : \"%%*.c\", 0, 'b'"); DO_TEST("%*.c", 0, 'b');
-	printf("Testing args : \"%%*.c\", 3, 'b'"); DO_TEST("%*.c", 3, 'b');
-	printf("Testing args : \"%%*.c\", 10, 'b'"); DO_TEST("%*.c", 10, 'b');
-	printf("Testing args : \"%%*.c\", -15, 'b'"); DO_TEST("%*.c", -15, 'b');
-	printf("Testing args : \"%%*.c\", 0, '9'"); DO_TEST("%*.c", 0, '9');
-	printf("Testing args : \"%%*.c\", 3, '9'"); DO_TEST("%*.c", 3, '9');
-	printf("Testing args : \"%%*.c\", 10, '9'"); DO_TEST("%*.c", 10, '9');
-	printf("Testing args : \"%%*.c\", -15, '9'"); DO_TEST("%*.c", -15, '9');
-	printf("Testing args : \"%%*.c\", 0, 227"); DO_TEST("%*.c", 0, 227);
-	printf("Testing args : \"%%*.c\", 3, 227"); DO_TEST("%*.c", 3, 227);
-	printf("Testing args : \"%%*.c\", 10, 227"); DO_TEST("%*.c", 10, 227);
-	printf("Testing args : \"%%*.c\", -15, 227"); DO_TEST("%*.c", -15, 227);
 	printf("Testing args : \"%%*.s\", 0, \"\""); DO_TEST("%*.s", 0, "");
 	printf("Testing args : \"%%*.0s\", 0, \"\""); DO_TEST("%*.0s", 0, "");
 	printf("Testing args : \"%%*.3s\", 0, \"\""); DO_TEST("%*.3s", 0, "");
@@ -2373,50 +2331,6 @@ int		main()
 	printf("Testing args : \"%%*.*x\", -15, 3, 2147483647"); DO_TEST("%*.*x", -15, 3, 2147483647);
 	printf("Testing args : \"%%*.*x\", -15, 10, 2147483647"); DO_TEST("%*.*x", -15, 10, 2147483647);
 	printf("Testing args : \"%%*.*x\", -15, -15, 2147483647"); DO_TEST("%*.*x", -15, -15, 2147483647);
-	printf("Testing args : \"%%*.p\", 0, (void*)-1"); DO_TEST("%*.p", 0, (void*)-1);
-	printf("Testing args : \"%%*.p\", 3, (void*)-1"); DO_TEST("%*.p", 3, (void*)-1);
-	printf("Testing args : \"%%*.p\", 10, (void*)-1"); DO_TEST("%*.p", 10, (void*)-1);
-	printf("Testing args : \"%%*.p\", -15, (void*)-1"); DO_TEST("%*.p", -15, (void*)-1);
-	printf("Testing args : \"%%*.p\", 0, (void*)30"); DO_TEST("%*.p", 0, (void*)30);
-	printf("Testing args : \"%%*.p\", 3, (void*)30"); DO_TEST("%*.p", 3, (void*)30);
-	printf("Testing args : \"%%*.p\", 10, (void*)30"); DO_TEST("%*.p", 10, (void*)30);
-	printf("Testing args : \"%%*.p\", -15, (void*)30"); DO_TEST("%*.p", -15, (void*)30);
-	printf("Testing args : \"%%*.p\", 0, (void*)14785478"); DO_TEST("%*.p", 0, (void*)14785478);
-	printf("Testing args : \"%%*.p\", 3, (void*)14785478"); DO_TEST("%*.p", 3, (void*)14785478);
-	printf("Testing args : \"%%*.p\", 10, (void*)14785478"); DO_TEST("%*.p", 10, (void*)14785478);
-	printf("Testing args : \"%%*.p\", -15, (void*)14785478"); DO_TEST("%*.p", -15, (void*)14785478);
-	printf("Testing args : \"%%*.%%\", 0"); DO_TEST("%*.%", 0);
-	printf("Testing args : \"%%*.0%%\", 0"); DO_TEST("%*.0%", 0);
-	printf("Testing args : \"%%*.3%%\", 0"); DO_TEST("%*.3%", 0);
-	printf("Testing args : \"%%*.10%%\", 0"); DO_TEST("%*.10%", 0);
-	printf("Testing args : \"%%*.*%%\", 0, 0"); DO_TEST("%*.*%", 0, 0);
-	printf("Testing args : \"%%*.*%%\", 0, 3"); DO_TEST("%*.*%", 0, 3);
-	printf("Testing args : \"%%*.*%%\", 0, 10"); DO_TEST("%*.*%", 0, 10);
-	printf("Testing args : \"%%*.*%%\", 0, -15"); DO_TEST("%*.*%", 0, -15);
-	printf("Testing args : \"%%*.%%\", 3"); DO_TEST("%*.%", 3);
-	printf("Testing args : \"%%*.0%%\", 3"); DO_TEST("%*.0%", 3);
-	printf("Testing args : \"%%*.3%%\", 3"); DO_TEST("%*.3%", 3);
-	printf("Testing args : \"%%*.10%%\", 3"); DO_TEST("%*.10%", 3);
-	printf("Testing args : \"%%*.*%%\", 3, 0"); DO_TEST("%*.*%", 3, 0);
-	printf("Testing args : \"%%*.*%%\", 3, 3"); DO_TEST("%*.*%", 3, 3);
-	printf("Testing args : \"%%*.*%%\", 3, 10"); DO_TEST("%*.*%", 3, 10);
-	printf("Testing args : \"%%*.*%%\", 3, -15"); DO_TEST("%*.*%", 3, -15);
-	printf("Testing args : \"%%*.%%\", 10"); DO_TEST("%*.%", 10);
-	printf("Testing args : \"%%*.0%%\", 10"); DO_TEST("%*.0%", 10);
-	printf("Testing args : \"%%*.3%%\", 10"); DO_TEST("%*.3%", 10);
-	printf("Testing args : \"%%*.10%%\", 10"); DO_TEST("%*.10%", 10);
-	printf("Testing args : \"%%*.*%%\", 10, 0"); DO_TEST("%*.*%", 10, 0);
-	printf("Testing args : \"%%*.*%%\", 10, 3"); DO_TEST("%*.*%", 10, 3);
-	printf("Testing args : \"%%*.*%%\", 10, 10"); DO_TEST("%*.*%", 10, 10);
-	printf("Testing args : \"%%*.*%%\", 10, -15"); DO_TEST("%*.*%", 10, -15);
-	printf("Testing args : \"%%*.%%\", -15"); DO_TEST("%*.%", -15);
-	printf("Testing args : \"%%*.0%%\", -15"); DO_TEST("%*.0%", -15);
-	printf("Testing args : \"%%*.3%%\", -15"); DO_TEST("%*.3%", -15);
-	printf("Testing args : \"%%*.10%%\", -15"); DO_TEST("%*.10%", -15);
-	printf("Testing args : \"%%*.*%%\", -15, 0"); DO_TEST("%*.*%", -15, 0);
-	printf("Testing args : \"%%*.*%%\", -15, 3"); DO_TEST("%*.*%", -15, 3);
-	printf("Testing args : \"%%*.*%%\", -15, 10"); DO_TEST("%*.*%", -15, 10);
-	printf("Testing args : \"%%*.*%%\", -15, -15"); DO_TEST("%*.*%", -15, -15);
 
 
 
@@ -2525,22 +2439,6 @@ int		main()
 	printf("Testing args : \"%%12.5f\", 5.0 / 0.0"); DO_TEST("%12.5f", 5.0 / 0.0);
 	printf("Testing args : \"%%12.5f\", -5.0 / 0.0"); DO_TEST("%12.5f", -5.0 / 0.0);
 	printf("Testing args : \"%%12.5f\", 0.0"); DO_TEST("%12.5f", 0.0);
-	printf("Testing args : \"%%.f\", 123.456"); DO_TEST("%.f", 123.456);
-	printf("Testing args : \"%%.f\", -123.456"); DO_TEST("%.f", -123.456);
-	printf("Testing args : \"%%.f\", 0.00123456"); DO_TEST("%.f", 0.00123456);
-	printf("Testing args : \"%%.f\", -0.00123456"); DO_TEST("%.f", -0.00123456);
-	printf("Testing args : \"%%.f\", 0.0 / 0.0"); DO_TEST("%.f", 0.0 / 0.0);
-	printf("Testing args : \"%%.f\", 5.0 / 0.0"); DO_TEST("%.f", 5.0 / 0.0);
-	printf("Testing args : \"%%.f\", -5.0 / 0.0"); DO_TEST("%.f", -5.0 / 0.0);
-	printf("Testing args : \"%%.f\", 0.0"); DO_TEST("%.f", 0.0);
-	printf("Testing args : \"%%12.f\", 123.456"); DO_TEST("%12.f", 123.456);
-	printf("Testing args : \"%%12.f\", -123.456"); DO_TEST("%12.f", -123.456);
-	printf("Testing args : \"%%12.f\", 0.00123456"); DO_TEST("%12.f", 0.00123456);
-	printf("Testing args : \"%%12.f\", -0.00123456"); DO_TEST("%12.f", -0.00123456);
-	printf("Testing args : \"%%12.f\", 0.0 / 0.0"); DO_TEST("%12.f", 0.0 / 0.0);
-	printf("Testing args : \"%%12.f\", 5.0 / 0.0"); DO_TEST("%12.f", 5.0 / 0.0);
-	printf("Testing args : \"%%12.f\", -5.0 / 0.0"); DO_TEST("%12.f", -5.0 / 0.0);
-	printf("Testing args : \"%%12.f\", 0.0"); DO_TEST("%12.f", 0.0);
 	printf("Testing args : \"%%-f\", 123.456"); DO_TEST("%-f", 123.456);
 	printf("Testing args : \"%%-f\", -123.456"); DO_TEST("%-f", -123.456);
 	printf("Testing args : \"%%-f\", 0.00123456"); DO_TEST("%-f", 0.00123456);
@@ -2779,22 +2677,6 @@ int		main()
 	printf("Testing args : \"%%12.5e\", 5.0 / 0.0"); DO_TEST("%12.5e", 5.0 / 0.0);
 	printf("Testing args : \"%%12.5e\", -5.0 / 0.0"); DO_TEST("%12.5e", -5.0 / 0.0);
 	printf("Testing args : \"%%12.5e\", 0.0"); DO_TEST("%12.5e", 0.0);
-	printf("Testing args : \"%%.e\", 123.456"); DO_TEST("%.e", 123.456);
-	printf("Testing args : \"%%.e\", -123.456"); DO_TEST("%.e", -123.456);
-	printf("Testing args : \"%%.e\", 0.00123456"); DO_TEST("%.e", 0.00123456);
-	printf("Testing args : \"%%.e\", -0.00123456"); DO_TEST("%.e", -0.00123456);
-	printf("Testing args : \"%%.e\", 0.0 / 0.0"); DO_TEST("%.e", 0.0 / 0.0);
-	printf("Testing args : \"%%.e\", 5.0 / 0.0"); DO_TEST("%.e", 5.0 / 0.0);
-	printf("Testing args : \"%%.e\", -5.0 / 0.0"); DO_TEST("%.e", -5.0 / 0.0);
-	printf("Testing args : \"%%.e\", 0.0"); DO_TEST("%.e", 0.0);
-	printf("Testing args : \"%%12.e\", 123.456"); DO_TEST("%12.e", 123.456);
-	printf("Testing args : \"%%12.e\", -123.456"); DO_TEST("%12.e", -123.456);
-	printf("Testing args : \"%%12.e\", 0.00123456"); DO_TEST("%12.e", 0.00123456);
-	printf("Testing args : \"%%12.e\", -0.00123456"); DO_TEST("%12.e", -0.00123456);
-	printf("Testing args : \"%%12.e\", 0.0 / 0.0"); DO_TEST("%12.e", 0.0 / 0.0);
-	printf("Testing args : \"%%12.e\", 5.0 / 0.0"); DO_TEST("%12.e", 5.0 / 0.0);
-	printf("Testing args : \"%%12.e\", -5.0 / 0.0"); DO_TEST("%12.e", -5.0 / 0.0);
-	printf("Testing args : \"%%12.e\", 0.0"); DO_TEST("%12.5e", 0.0);
 	printf("Testing args : \"%%-e\", 123.456"); DO_TEST("%-e", 123.456);
 	printf("Testing args : \"%%-e\", -123.456"); DO_TEST("%-e", -123.456);
 	printf("Testing args : \"%%-e\", 0.00123456"); DO_TEST("%-e", 0.00123456);
@@ -2827,22 +2709,6 @@ int		main()
 	printf("Testing args : \"%%-12.5e\", 5.0 / 0.0"); DO_TEST("%-12.5e", 5.0 / 0.0);
 	printf("Testing args : \"%%-12.5e\", -5.0 / 0.0"); DO_TEST("%-12.5e", -5.0 / 0.0);
 	printf("Testing args : \"%%-12.5e\", 0.0"); DO_TEST("%-12.5e", 0.0);
-	printf("Testing args : \"%%.e\", 123.456"); DO_TEST("%.e", 123.456);
-	printf("Testing args : \"%%.e\", -123.456"); DO_TEST("%.e", -123.456);
-	printf("Testing args : \"%%.e\", 0.00123456"); DO_TEST("%.e", 0.00123456);
-	printf("Testing args : \"%%.e\", -0.00123456"); DO_TEST("%.e", -0.00123456);
-	printf("Testing args : \"%%.e\", 0.0 / 0.0"); DO_TEST("%.e", 0.0 / 0.0);
-	printf("Testing args : \"%%.e\", 5.0 / 0.0"); DO_TEST("%.e", 5.0 / 0.0);
-	printf("Testing args : \"%%.e\", -5.0 / 0.0"); DO_TEST("%.e", -5.0 / 0.0);
-	printf("Testing args : \"%%.e\", 0.0"); DO_TEST("%.e", 0.0);
-	printf("Testing args : \"%%12.e\", 123.456"); DO_TEST("%12.e", 123.456);
-	printf("Testing args : \"%%12.e\", -123.456"); DO_TEST("%12.e", -123.456);
-	printf("Testing args : \"%%12.e\", 0.00123456"); DO_TEST("%12.e", 0.00123456);
-	printf("Testing args : \"%%12.e\", -0.00123456"); DO_TEST("%12.e", -0.00123456);
-	printf("Testing args : \"%%12.e\", 0.0 / 0.0"); DO_TEST("%12.e", 0.0 / 0.0);
-	printf("Testing args : \"%%12.e\", 5.0 / 0.0"); DO_TEST("%12.e", 5.0 / 0.0);
-	printf("Testing args : \"%%12.e\", -5.0 / 0.0"); DO_TEST("%12.e", -5.0 / 0.0);
-	printf("Testing args : \"%%12.e\", 0.0"); DO_TEST("%12.5e", 0.0);
 	printf("Testing args : \"%%0e\", 123.456"); DO_TEST("%0e", 123.456);
 	printf("Testing args : \"%%0e\", -123.456"); DO_TEST("%0e", -123.456);
 	printf("Testing args : \"%%0e\", 0.00123456"); DO_TEST("%0e", 0.00123456);
@@ -3006,22 +2872,6 @@ int		main()
 	printf("Testing args : \"%%12.5g\", 5.0 / 0.0"); DO_TEST("%12.5g", 5.0 / 0.0);
 	printf("Testing args : \"%%12.5g\", -5.0 / 0.0"); DO_TEST("%12.5g", -5.0 / 0.0);
 	printf("Testing args : \"%%12.5g\", 0.0"); DO_TEST("%12.5g", 0.0);
-	printf("Testing args : \"%%.g\", 123.456"); DO_TEST("%.g", 123.456);
-	printf("Testing args : \"%%.g\", -123.456"); DO_TEST("%.g", -123.456);
-	printf("Testing args : \"%%.g\", 0.00123453"); DO_TEST("%.g", 0.00123453);
-	printf("Testing args : \"%%.g\", -0.00123453"); DO_TEST("%.g", -0.00123453);
-	printf("Testing args : \"%%.g\", 0.0 / 0.0"); DO_TEST("%.g", 0.0 / 0.0);
-	printf("Testing args : \"%%.g\", 5.0 / 0.0"); DO_TEST("%.g", 5.0 / 0.0);
-	printf("Testing args : \"%%.g\", -5.0 / 0.0"); DO_TEST("%.g", -5.0 / 0.0);
-	printf("Testing args : \"%%.g\", 0.0"); DO_TEST("%.g", 0.0);
-	printf("Testing args : \"%%12.g\", 123.456"); DO_TEST("%12.g", 123.456);
-	printf("Testing args : \"%%12.g\", -123.456"); DO_TEST("%12.g", -123.456);
-	printf("Testing args : \"%%12.g\", 0.00123453"); DO_TEST("%12.g", 0.00123453);
-	printf("Testing args : \"%%12.g\", -0.00123453"); DO_TEST("%12.g", -0.00123453);
-	printf("Testing args : \"%%12.g\", 0.0 / 0.0"); DO_TEST("%12.g", 0.0 / 0.0);
-	printf("Testing args : \"%%12.g\", 5.0 / 0.0"); DO_TEST("%12.g", 5.0 / 0.0);
-	printf("Testing args : \"%%12.g\", -5.0 / 0.0"); DO_TEST("%12.g", -5.0 / 0.0);
-	printf("Testing args : \"%%12.g\", 0.0"); DO_TEST("%12.g", 0.0);
 	printf("Testing args : \"%%-g\", 123.456"); DO_TEST("%-g", 123.456);
 	printf("Testing args : \"%%-g\", -123.456"); DO_TEST("%-g", -123.456);
 	printf("Testing args : \"%%-g\", 0.00123453"); DO_TEST("%-g", 0.00123453);

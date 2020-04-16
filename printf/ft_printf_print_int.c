@@ -6,14 +6,14 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 20:17:43 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/05 18:21:18 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:10:21 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static long long
-	get_int_from_arg(va_list *args, const t_format *format)
+	get_int_from_arg(va_list *args, const t_ft_printf_format *format)
 {
 	if (format->modifier == LONG_LONG)
 		return ((long long)va_arg(*args, long long));
@@ -24,7 +24,7 @@ static long long
 }
 
 static long long unsigned
-	get_unsigned_int_from_arg(va_list *args, const t_format *format)
+	get_unsigned_int_from_arg(va_list *args, const t_ft_printf_format *format)
 {
 	if (format->modifier == LONG_LONG)
 		return (va_arg(*args, long long unsigned int));
@@ -35,10 +35,10 @@ static long long unsigned
 }
 
 void
-	print_int(va_list *args, t_format *format)
+	ft_printf_print_int(va_list *args, t_ft_printf_format *format)
 {
-	t_integer	n;
-	long long	temp;
+	t_ft_printf_integer	n;
+	long long			temp;
 
 	n.sign = 0;
 	if (format->type == INT)
@@ -51,5 +51,5 @@ void
 		n.abs = (long long unsigned)va_arg(*args, unsigned long);
 	else
 		n.abs = get_unsigned_int_from_arg(args, format);
-	print_int_acc(&n, format);
+	ft_printf_print_int_acc(&n, format);
 }

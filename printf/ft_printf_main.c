@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 13:14:27 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/20 13:52:37 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:19:01 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int
 	int		ret;
 
 	va_start(args, str);
-	ret = ft_zprintf(1, str, &args);
+	ret = ft_printf_zprintf(1, str, &args);
 	va_end(args);
 	return (ret);
 }
@@ -31,7 +31,7 @@ int
 	int		ret;
 
 	va_start(args, str);
-	ret = ft_zprintf(fd, str, &args);
+	ret = ft_printf_zprintf(fd, str, &args);
 	va_end(args);
 	return (ret);
 }

@@ -3,6 +3,6 @@ gcc -Wall -Wextra main.c 2>&1 >/dev/null | grep "warning" | sed '$d' | cut -f 2 
 i=0
 while read p; do
 	let p=p-i
-	sed -i '' "${p}d" "main.c"
+	sed -i.bak "${p}d" "main.c"
 	let i+=1
 done < treat_enzo.txt

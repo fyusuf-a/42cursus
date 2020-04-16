@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int2.c                                       :+:      :+:    :+:   */
+/*   ft_printf_print_int2.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:27:46 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/05 18:21:03 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:11:05 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static void
-	load_params(t_print_params *params, const t_format *format, t_integer *n,
-														const t_base *base)
+	load_params(t_ft_printf_print_params *params,
+			const t_ft_printf_format *format, t_ft_printf_integer *n,
+			const t_ft_printf_base *base)
 {
 	int				len;
 
-	params->len_proper = ft_ilen(n->abs, base->length);
+	params->len_proper = ft_printf_ilen(n->abs, base->length);
 	if (format->precision == 0 && n->abs == 0)
 		params->len_proper--;
 	params->len_zeros = 0;
@@ -34,7 +35,8 @@ static void
 }
 
 static void
-	print_nbr(unsigned long long n, t_base *base, size_t i, size_t total)
+	print_nbr(unsigned long long n, t_ft_printf_base *base,
+			size_t i, size_t total)
 {
 	if (n >= base->length)
 	{
@@ -42,46 +44,47 @@ static void
 		print_nbr(n % base->length, base, i + 1, total);
 	}
 	else if (i < total)
-		load_buffer(base->str[n]);
+		ft_printf_load_buffer(base->str[n]);
 }
 
 static void
-	print_int_acc_no_minus_helper(int sign, const t_format *format,
-			const t_print_params *params)
+	print_int_acc_no_minus_helper(int sign, const t_ft_printf_format *format,
+			const t_ft_printf_print_params *params)
 {
 	if (format->padding == '0')
 	{
-		sign ? load_buffer('-') : 0;
-		!sign && format->plus ? load_buffer('+') : 0;
-		format->type == POINTER ? print_zerox() : 0;
-		print_padding(format, params->len_padding);
+		sign ? ft_printf_load_buffer('-') : 0;
+		!sign && format->plus ? ft_printf_load_buffer('+') : 0;
+		format->type == POINTER ? ft_printf_print_zerox() : 0;
+		ft_printf_print_padding(format, params->len_padding);
 	}
 	else
 	{
-		print_padding(format, params->len_padding);
-		format->type == POINTER ? print_zerox() : 0;
-		sign ? load_buffer('-') : 0;
-		!sign && format->plus ? load_buffer('+') : 0;
+		ft_printf_print_padding(format, params->len_padding);
+		format->type == POINTER ? ft_printf_print_zerox() : 0;
+		sign ? ft_printf_load_buffer('-') : 0;
+		!sign && format->plus ? ft_printf_load_buffer('+') : 0;
 	}
-	print_zeros(params->len_zeros);
+	ft_printf_print_zeros(params->len_zeros);
 }
 
 void
-	print_int_acc(t_integer *n, const t_format *format)
+	ft_printf_print_int_acc(t_ft_printf_integer *n,
+			const t_ft_printf_format *format)
 {
-	t_base			base;
-	t_print_params	params;
+	t_ft_printf_base			base;
+	t_ft_printf_print_params	params;
 
-	fill_base(&base, format);
+	ft_printf_fill_base(&base, format);
 	load_params(&params, format, n, &base);
 	if (format->minus)
 	{
-		format->type == POINTER ? print_zerox() : 0;
-		n->sign ? load_buffer('-') : 0;
-		!n->sign && format->plus ? load_buffer('+') : 0;
-		print_zeros(params.len_zeros);
+		format->type == POINTER ? ft_printf_print_zerox() : 0;
+		n->sign ? ft_printf_load_buffer('-') : 0;
+		!n->sign && format->plus ? ft_printf_load_buffer('+') : 0;
+		ft_printf_print_zeros(params.len_zeros);
 		print_nbr(n->abs, &base, 0, params.len_proper);
-		print_padding(format, params.len_padding);
+		ft_printf_print_padding(format, params.len_padding);
 	}
 	else
 	{

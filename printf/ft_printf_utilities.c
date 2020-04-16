@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
+/*   ft_printf_utilities.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:56:08 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/01/31 14:45:10 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:26:00 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int
-	ft_atoi_strict(const char *str)
+	ft_printf_atoi_strict(const char *str)
 {
 	int number;
 	int done_something;
@@ -33,7 +33,7 @@ int
 }
 
 void
-	advance_cursor(t_buff *str, int n)
+	ft_printf_advance_cursor(t_ft_printf_buff *str, int n)
 {
 	int i;
 
@@ -47,7 +47,7 @@ void
 */
 
 size_t
-	ft_ilen(long long unsigned number, long long unsigned l_base)
+	ft_printf_ilen(long long unsigned number, long long unsigned l_base)
 {
 	size_t				result;
 
@@ -62,18 +62,18 @@ size_t
 }
 
 void
-	print_zeros(size_t times)
+	ft_printf_print_zeros(size_t times)
 {
 	size_t i;
 
 	i = 0;
 	while (i++ < times)
-		load_buffer('0');
+		ft_printf_load_buffer('0');
 }
 
 void
-	print_zerox(void)
+	ft_printf_print_zerox(void)
 {
-	load_buffer('0');
-	load_buffer('x');
+	ft_printf_load_buffer('0');
+	ft_printf_load_buffer('x');
 }

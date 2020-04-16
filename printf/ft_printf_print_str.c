@@ -6,14 +6,15 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:55:46 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/08 18:02:10 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:06:47 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static void
-	load_params(t_print_params *params, const t_format *format, char *str)
+	ft_printf_load_params(t_ft_printf_print_params *params,
+			const t_ft_printf_format *format, char *str)
 {
 	int strlen;
 
@@ -35,49 +36,51 @@ static void
 }
 
 static void
-	print_str_using_buffer(char *str, t_print_params *params)
+	ft_printf_print_str_using_buffer(char *str,
+			t_ft_printf_print_params *params)
 {
 	int	i;
 
 	i = 0;
 	while (i < params->len_proper)
-		load_buffer(str[i++]);
+		ft_printf_load_buffer(str[i++]);
 }
 
 void
-	print_str_acc(char *str, const t_format *format)
+	ft_printf_print_str_acc(char *str, const t_ft_printf_format *format)
 {
-	t_print_params	params;
+	t_ft_printf_print_params	params;
 
-	load_params(&params, format, str);
+	ft_printf_load_params(&params, format, str);
 	if (format->minus)
 	{
-		print_str_using_buffer(str, &params);
-		print_padding(format, params.len_padding);
+		ft_printf_print_str_using_buffer(str, &params);
+		ft_printf_print_padding(format, params.len_padding);
 	}
 	else
 	{
-		print_padding(format, params.len_padding);
-		print_str_using_buffer(str, &params);
+		ft_printf_print_padding(format, params.len_padding);
+		ft_printf_print_str_using_buffer(str, &params);
 	}
 }
 
 void
-	print_str(va_list *args, t_format *format)
+	ft_printf_print_str(va_list *args, t_ft_printf_format *format)
 {
 	char			*str;
 
 	if (!(str = va_arg(*args, char*)))
 		str = "(null)";
-	print_str_acc(str, format);
+	ft_printf_print_str_acc(str, format);
 }
 
 void
-	print_char(va_list *args, t_format *format, t_buff *str)
+	ft_printf_print_char(va_list *args, t_ft_printf_format *format,
+			t_ft_printf_buff *str)
 {
-	t_print_params	params;
-	char			c;
-	char			string[1];
+	t_ft_printf_print_params	params;
+	char						c;
+	char						string[1];
 
 	if (format->type == CHAR)
 		c = (char)va_arg(*args, int);
@@ -85,15 +88,15 @@ void
 		c = str->buffer[str->cursor - 1];
 	else
 		c = '%';
-	load_params(&params, format, string);
+	ft_printf_load_params(&params, format, string);
 	if (format->minus)
 	{
-		load_buffer(c);
-		print_padding(format, params.len_padding);
+		ft_printf_load_buffer(c);
+		ft_printf_print_padding(format, params.len_padding);
 	}
 	else
 	{
-		print_padding(format, params.len_padding);
-		load_buffer(c);
+		ft_printf_print_padding(format, params.len_padding);
+		ft_printf_load_buffer(c);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:19:55 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2019/11/20 14:19:57 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:42:23 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int
 }
 
 int
-	read_buffer(int fd, char **line, t_parse_state *st)
+	ft_gnl_read_buffer(int fd, char **line, t_parse_state *st)
 {
 	int		j;
 
@@ -95,18 +95,18 @@ int
 		if (st->cursor < st->char_nb)
 			if (!(*line = update(line, st, st->char_nb)))
 				return (-1);
-		return (read_file(fd, line, st));
+		return (ft_gnl_read_file(fd, line, st));
 	}
 	return (-1);
 }
 
 int
-	read_file(int fd, char **line, t_parse_state *st)
+	ft_gnl_read_file(int fd, char **line, t_parse_state *st)
 {
 	st->flag = READ_FILE;
 	st->cursor = 0;
 	if ((st->char_nb = read(fd, st->buffer, BUFFER_SIZE)) > 0)
-		return (read_buffer(fd, line, st));
+		return (ft_gnl_read_buffer(fd, line, st));
 	else if (st->char_nb == 0)
 		return (0);
 	else

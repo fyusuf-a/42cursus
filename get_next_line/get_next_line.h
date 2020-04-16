@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:20:06 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2019/11/22 14:54:57 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 17:41:42 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct	s_parse_state {
 }				t_parse_state;
 
 int				get_next_line(int fd, char **line);
-int				read_file(int fd, char **line, t_parse_state *st);
-int				read_buffer(int fd, char **line, t_parse_state *st);
+int				ft_gnl_read_file(int fd, char **line, t_parse_state *st);
+int				ft_gnl_read_buffer(int fd, char **line, t_parse_state *st);
 
 #endif

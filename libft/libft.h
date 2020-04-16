@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:51:16 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2019/11/13 14:01:23 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 18:02:41 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,11 @@ void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*del)(void*));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void*),
 								void (*del)(void*));
+
+/*
+** Additional
+*/
+int			ft_atoi_strict(const char *str);
+int			ft_elem(char c, const char *str);
 
 #endif

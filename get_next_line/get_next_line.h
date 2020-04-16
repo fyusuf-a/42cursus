@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:20:06 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:41:42 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 18:32:50 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 
 # define READ_FILE 0
 # define READ_BUF 1
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX FOPEN_MAX
+# endif
 
 typedef struct	s_parse_state {
 	char	buffer[BUFFER_SIZE];

@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:04:08 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/02/20 13:52:05 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/16 14:05:02 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ typedef struct	s_print_params {
 typedef struct	s_buff {
 	char	*buffer;
 	size_t	cursor;
-	int		mallocated;
 }				t_buff;
 
 typedef struct	s_base {

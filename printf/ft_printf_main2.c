@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 13:14:27 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:25:16 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/19 15:24:37 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void
 }
 
 int
-	ft_printf_zprintf(int fd, char *str, va_list *list)
+	ft_zprintf(int fd, char *str, va_list *list)
 {
 	t_ft_printf_buff		st;
 	t_ft_printf_format		format;

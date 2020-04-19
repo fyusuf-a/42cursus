@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:04:08 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:20:37 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/19 15:25:01 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int				ft_dprintf(int fd, char *format, ...);
 int				ft_printf_get_g_return_value(void);
 void			ft_printf_load_buffer(char c);
 void			ft_printf_flush_buffer();
-int				ft_printf_zprintf(int fd, char *format, va_list *args);
+int				ft_zprintf(int fd, char *format, va_list *args);
 
 /*
 ** ft_printf_parse_format.c

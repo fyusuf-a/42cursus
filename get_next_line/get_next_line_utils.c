@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:19:55 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:42:23 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/22 17:50:34 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,16 @@ int
 		if (!(*line = update(line, st, j)))
 			return (-1);
 		st->cursor++;
-		return (1);
+		return (RET_FILE_READ);
 	}
 	else
 	{
 		if (st->cursor < st->char_nb)
 			if (!(*line = update(line, st, st->char_nb)))
-				return (-1);
+				return (RET_ERROR);
 		return (ft_gnl_read_file(fd, line, st));
 	}
-	return (-1);
+	return (RET_ERROR);
 }
 
 int
@@ -108,7 +108,7 @@ int
 	if ((st->char_nb = read(fd, st->buffer, BUFFER_SIZE)) > 0)
 		return (ft_gnl_read_buffer(fd, line, st));
 	else if (st->char_nb == 0)
-		return (0);
+		return (RET_FILE_END);
 	else
-		return (-1);
+		return (RET_ERROR);
 }

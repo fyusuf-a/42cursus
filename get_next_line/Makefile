@@ -9,6 +9,7 @@ all:	${NAME}
 bonus:		${NAME}
 
 clean:
+	rm -f *.gch
 	rm -f ${OBJS} ${OBJS_BONUS}
 
 fclean:		clean

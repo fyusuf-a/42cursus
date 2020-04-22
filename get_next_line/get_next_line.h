@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:20:06 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 18:32:50 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/22 15:26:42 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 
 # define READ_FILE 0
 # define READ_BUF 1
+
+# define RET_ERROR     -1
+# define RET_FILE_END  0
+# define RET_FILE_READ 1
 
 # ifndef OPEN_MAX
 #  define OPEN_MAX FOPEN_MAX

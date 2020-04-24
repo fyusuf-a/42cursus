@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:56:08 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:26:00 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 13:30:51 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int
 }
 
 void
-	ft_printf_advance_cursor(t_ft_printf_buff *str, int n)
+	ft_printf_advance_cursor(t_ft_printf_format_str *str, int n)
 {
 	int i;
 

@@ -6,14 +6,14 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 14:43:20 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:17:30 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 13:27:36 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static void
-	parse_flags(t_ft_printf_format *format, t_ft_printf_buff *str)
+	parse_flags(t_ft_printf_format *format, t_ft_printf_format_str *str)
 {
 	char c;
 
@@ -35,7 +35,7 @@ static void
 
 static int
 	parse_width(t_ft_printf_format *format, va_list *args,
-			t_ft_printf_buff *str)
+			t_ft_printf_format_str *str)
 {
 	int				w;
 
@@ -62,7 +62,7 @@ static int
 
 static void
 	parse_precision(t_ft_printf_format *format, va_list *args,
-			t_ft_printf_buff *str)
+			t_ft_printf_format_str *str)
 {
 	if (str->buffer[str->cursor] == '*')
 	{
@@ -84,7 +84,7 @@ static void
 
 int
 	ft_printf_parse_format(t_ft_printf_format *format,
-			va_list *args, t_ft_printf_buff *str)
+			va_list *args, t_ft_printf_format_str *str)
 {
 	parse_flags(format, str);
 	if (parse_width(format, args, str) < 0)

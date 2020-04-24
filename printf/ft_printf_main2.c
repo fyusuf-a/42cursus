@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 13:14:27 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/19 15:24:37 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 13:37:53 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,11 @@ void
 }
 
 int
-	ft_zprintf(int fd, char *str, va_list *list)
+	ft_zprintf(int fd, const char *str, va_list *list)
 {
-	t_ft_printf_buff		st;
+	t_ft_printf_format_str	st;
 	t_ft_printf_format		format;
 
-	if (!(g_buffer.buffer = malloc(BUFFER_SIZE)))
-		return (0);
 	st.buffer = str;
 	st.cursor = 0;
 	g_ft_printf_return_value = 0;
@@ -64,6 +62,5 @@ int
 		ft_printf_print_arg(list, &format, &st);
 	}
 	ft_printf_flush_buffer(fd);
-	free(g_buffer.buffer);
 	return (g_ft_printf_return_value);
 }

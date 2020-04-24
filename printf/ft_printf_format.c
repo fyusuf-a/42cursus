@@ -6,14 +6,14 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 13:24:02 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:25:51 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 13:31:12 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int
-	ft_printf_flush_format(t_ft_printf_buff *str)
+	ft_printf_flush_format(t_ft_printf_format_str *str)
 {
 	char c;
 

@@ -6,18 +6,15 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:04:08 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/19 15:25:01 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 13:38:35 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdlib.h>
 # include <stdarg.h>
-# include <stdio.h>
 # include <unistd.h>
-# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 9999
@@ -65,9 +62,14 @@ typedef struct	s_ft_printf_print_params {
 }				t_ft_printf_print_params;
 
 typedef struct	s_ft_printf_buff {
-	char	*buffer;
-	size_t	cursor;
+	char		buffer[BUFFER_SIZE];
+	size_t		cursor;
 }				t_ft_printf_buff;
+
+typedef struct	s_ft_printf_format_str {
+	const char	*buffer;
+	size_t		cursor;
+}				t_ft_printf_format_str;
 
 typedef struct	s_ft_printf_base {
 	char	*str;
@@ -83,15 +85,15 @@ typedef struct	s_ft_printf_integer {
 ** ft_printf_format.c
 */
 
-int				ft_printf_flush_format(t_ft_printf_buff *str);
+int				ft_printf_flush_format(t_ft_printf_format_str *str);
 void			ft_printf_initialize_format(t_ft_printf_format *format);
 
 /*
 ** ft_printf_main.c
 */
 
-int				ft_printf(char *format, ...);
-int				ft_dprintf(int fd, char *format, ...);
+int				ft_printf(const char *format, ...);
+int				ft_dprintf(int fd, const char *format, ...);
 
 /*
 ** ft_printf_main2.c
@@ -100,23 +102,23 @@ int				ft_dprintf(int fd, char *format, ...);
 int				ft_printf_get_g_return_value(void);
 void			ft_printf_load_buffer(char c);
 void			ft_printf_flush_buffer();
-int				ft_zprintf(int fd, char *format, va_list *args);
+int				ft_zprintf(int fd, const char *format, va_list *args);
 
 /*
 ** ft_printf_parse_format.c
 */
 
 int				ft_printf_parse_format(t_ft_printf_format *format,
-va_list *list, t_ft_printf_buff *str);
+	va_list *list, t_ft_printf_format_str *str);
 
 /*
 ** ft_printf_parse_format2.c
 */
 
 void			ft_printf_parse_modifier(t_ft_printf_format *format,
-		t_ft_printf_buff *st);
+		t_ft_printf_format_str *st);
 void			ft_printf_parse_type(t_ft_printf_format *format,
-		t_ft_printf_buff *st);
+		t_ft_printf_format_str *st);
 
 /*
 ** ft_printf_print.c
@@ -125,14 +127,14 @@ void			ft_printf_parse_type(t_ft_printf_format *format,
 void			ft_printf_print_padding(const t_ft_printf_format *format,
 		int times);
 void			ft_printf_print_arg(va_list *args,
-		t_ft_printf_format *format, t_ft_printf_buff *str);
+		t_ft_printf_format *format, t_ft_printf_format_str *str);
 
 /*
 ** ft_printf_print_str.c
 */
 
 void			ft_printf_print_char(va_list *args,
-		t_ft_printf_format *format, t_ft_printf_buff *str);
+		t_ft_printf_format *format, t_ft_printf_format_str *str);
 void			ft_printf_print_str_acc(char *str,
 		const t_ft_printf_format *format);
 void			ft_printf_print_str(va_list *args, t_ft_printf_format *format);
@@ -161,7 +163,7 @@ void			ft_printf_print_nothing(va_list *args);
 */
 
 int				ft_printf_atoi_strict(const char *str);
-void			ft_printf_advance_cursor(t_ft_printf_buff *str, int n);
+void			ft_printf_advance_cursor(t_ft_printf_format_str *str, int n);
 size_t			ft_printf_ilen(long long unsigned number,
 		long long unsigned l_base);
 void			ft_printf_print_zeros(size_t times);

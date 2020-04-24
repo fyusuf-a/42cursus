@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:55:46 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:06:47 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 13:30:37 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void
 
 void
 	ft_printf_print_char(va_list *args, t_ft_printf_format *format,
-			t_ft_printf_buff *str)
+			t_ft_printf_format_str *str)
 {
 	t_ft_printf_print_params	params;
 	char						c;

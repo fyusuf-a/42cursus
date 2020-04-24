@@ -6,14 +6,15 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 20:30:03 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:18:17 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 13:30:07 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 void
-	ft_printf_parse_modifier(t_ft_printf_format *format, t_ft_printf_buff *st)
+	ft_printf_parse_modifier(t_ft_printf_format *format,
+			t_ft_printf_format_str *st)
 {
 	if (st->buffer[st->cursor] == 'l')
 	{
@@ -28,7 +29,7 @@ void
 }
 
 void
-	ft_printf_parse_type(t_ft_printf_format *format, t_ft_printf_buff *st)
+	ft_printf_parse_type(t_ft_printf_format *format, t_ft_printf_format_str *st)
 {
 	char c;
 

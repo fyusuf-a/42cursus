@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:24:26 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 17:16:35 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 13:23:24 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void
 
 void
 	ft_printf_print_arg(va_list *args, t_ft_printf_format *format,
-			t_ft_printf_buff *str)
+			t_ft_printf_format_str *str)
 {
 	if (format->type == CHAR || format->type == PERCENTAGE
 			|| format->type == UNKNOWN_TYPE)

@@ -6,14 +6,14 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 13:14:27 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/19 15:26:23 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/24 09:27:53 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int
-	ft_printf(char *str, ...)
+	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		ret;
@@ -25,7 +25,7 @@ int
 }
 
 int
-	ft_dprintf(int fd, char *str, ...)
+	ft_dprintf(int fd, const char *str, ...)
 {
 	va_list	args;
 	int		ret;

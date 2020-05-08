@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:51:16 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/16 18:02:41 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/05/08 16:50:25 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 /*
 ** Part 1
@@ -87,7 +89,11 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void*),
 /*
 ** Additional
 */
+int			ft_strcmp(const char *str1, const char *str2);
 int			ft_atoi_strict(const char *str);
 int			ft_elem(char c, const char *str);
+int			ft_min(int x, int y);
+int			ft_max(int x, int y);
+int			ft_abs(int x, int y);
 
 #endif

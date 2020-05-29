@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:51:16 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/05/08 16:50:25 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/05/29 12:46:05 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int			ft_atoi_strict(const char *str);
 int			ft_elem(char c, const char *str);
 int			ft_min(int x, int y);
 int			ft_max(int x, int y);
-int			ft_abs(int x, int y);
+int			ft_abs(int x);
+int			ft_lstadd_elem(t_list **alst, void *data);
 
 #endif

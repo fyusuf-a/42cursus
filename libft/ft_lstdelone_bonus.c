@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:38:31 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2019/11/11 11:01:14 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/05/29 13:27:55 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	{
 		(*del)(lst->content);
 		free(lst);
-		lst = NULL;
 	}
 }

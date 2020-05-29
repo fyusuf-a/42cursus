@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 14:19:55 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/22 17:50:34 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/04/22 20:25:38 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int
 	if (st->cursor < st->char_nb && (j = occurence('\n', st)) != -1)
 	{
 		if (!(*line = update(line, st, j)))
-			return (-1);
+			return (RET_ERROR);
 		st->cursor++;
 		return (RET_FILE_READ);
 	}

@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:55:46 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/04/24 13:30:37 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/06/29 11:39:05 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,24 +79,23 @@ void
 			t_ft_printf_format_str *str)
 {
 	t_ft_printf_print_params	params;
-	char						c;
 	char						string[1];
 
 	if (format->type == CHAR)
-		c = (char)va_arg(*args, int);
+		string[0] = (char)va_arg(*args, int);
 	else if (format->type == UNKNOWN_TYPE)
-		c = str->buffer[str->cursor - 1];
+		string[0] = str->buffer[str->cursor - 1];
 	else
-		c = '%';
+		string[0] = '%';
 	ft_printf_load_params(&params, format, string);
 	if (format->minus)
 	{
-		ft_printf_load_buffer(c);
+		ft_printf_load_buffer(string[0]);
 		ft_printf_print_padding(format, params.len_padding);
 	}
 	else
 	{
 		ft_printf_print_padding(format, params.len_padding);
-		ft_printf_load_buffer(c);
+		ft_printf_load_buffer(string[0]);
 	}
 }

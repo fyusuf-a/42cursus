@@ -3,7 +3,7 @@ NAME	= libftprintf.a
 SRCS		= ft_printf_main.c ft_printf_main2.c ft_printf_parse_format.c ft_printf_parse_format2.c ft_printf_print.c ft_printf_print_str.c ft_printf_print_int.c ft_printf_print_int2.c ft_printf_utilities.c
 SRCS	 += ft_printf_utilities2.c ft_printf_format.c ft_printf_print_nothing.c ft_printf_print_double.c ft_printf_print_double2.c ft_printf_print_scientific.c ft_printf_print_g.c
 OBJS		= ${SRCS:.c=.o}
-$(OBJS): EXTRA_ARGS := -Werror -Wextra -Wall
+$(OBJS): EXTRA_ARGS := -Werror -Wextra -Wall -O3
 
 TESTS		= test/main.c
 OBJS_TESTS	= ${TESTS:.c=.o}

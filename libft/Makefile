@@ -9,6 +9,7 @@ SRCS	+= ft_lstadd_front_elem.c ft_lstadd_back_elem.c
 OBJS = ${SRCS:.c=.o}
 
 C_FLAGS = -Werror -Wextra -Wall -O3
+CC	= clang
 
 INCLUDES = -I.
 
@@ -39,6 +40,6 @@ fclean: clean
 re:		fclean all
 
 .c.o:
-	gcc ${C_FLAGS} ${INCLUDES} -c $< -o ${<:.c=.o}
+	${CC} ${C_FLAGS} ${INCLUDES} -c $< -o ${<:.c=.o}
 
 .PHONY:	all clean fclean re printf get_next_line

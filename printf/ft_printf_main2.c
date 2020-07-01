@@ -24,13 +24,10 @@ int
 void
 	ft_printf_load_buffer(char c)
 {
-	int	unused;
-
 	if (g_buffer.cursor == BUFFER_SIZE)
 	{
 		g_buffer.cursor = 0;
-		unused = write(1, g_buffer.buffer, BUFFER_SIZE);
-		(void)unused;
+		write(1, g_buffer.buffer, BUFFER_SIZE);
 		g_ft_printf_return_value += BUFFER_SIZE;
 	}
 	g_buffer.buffer[g_buffer.cursor] = c;
@@ -40,10 +37,7 @@ void
 void
 	ft_printf_flush_buffer(int fd)
 {
-	int	unused;
-
-	unused = write(fd, g_buffer.buffer, g_buffer.cursor);
-	(void)unused;
+	write(fd, g_buffer.buffer, g_buffer.cursor);
 	g_ft_printf_return_value += g_buffer.cursor;
 	g_buffer.cursor = 0;
 }

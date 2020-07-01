@@ -9,6 +9,8 @@ TESTS		= test/main.c
 OBJS_TESTS	= ${TESTS:.c=.o}
 $(OBJS_TESTS): EXTRA_ARGS := -Wall -Wextra
 
+CC		= clang
+
 all:	${NAME}
 
 bonus:		${NAME}
@@ -29,10 +31,10 @@ $(NAME):	${OBJS}
 	ar -rcs ${NAME} ${OBJS}
 
 .c.o:
-	gcc ${EXTRA_ARGS} -I. -c $< -o ${<:.c=.o}
+	${CC} ${EXTRA_ARGS} -I. -c $< -o ${<:.c=.o}
 
 test:		${NAME} test/main.c
-	gcc ${EXTRA_ARGS} -I. -o test/test test/main.c ${NAME}
+	${CC} ${EXTRA_ARGS} -I. -o test/test test/main.c ${NAME}
 	test/test
 
 .PHONY:	all clean fclean cclean re test bonus libft

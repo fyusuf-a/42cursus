@@ -4,6 +4,8 @@ SRCS		= get_next_line.c get_next_line_utils.c
 OBJS		= ${SRCS:.c=.o}
 $(OBJS): EXTRA_ARGS := -Werror -Wextra -Wall -O3
 
+CC		= clang
+
 all:	${NAME}
 
 bonus:		${NAME}
@@ -21,10 +23,10 @@ $(NAME):	${OBJS}
 	ar -rcs ${NAME} ${OBJS}
 
 .c.o:
-	gcc ${EXTRA_ARGS} -I. -c $< -o ${<:.c=.o}
+	${CC} ${EXTRA_ARGS} -I. -c $< -o ${<:.c=.o}
 
 test:		${NAME} test/main.c
-	gcc ${EXTRA_ARGS} -o test/test test/main.c ${NAME}
+	${CC} ${EXTRA_ARGS} -o test/test test/main.c ${NAME}
 	test/test
 
 .PHONY:	all clean fclean re ${NAME}

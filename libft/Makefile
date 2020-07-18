@@ -8,7 +8,7 @@ SRCS	+= ft_lstadd_front_elem.c ft_lstadd_back_elem.c
 
 OBJS = ${SRCS:.c=.o}
 
-C_FLAGS = -Werror -Wextra -Wall -O3
+C_FLAGS = -Werror -Wextra -Wall
 CC	= clang
 
 INCLUDES = -I.

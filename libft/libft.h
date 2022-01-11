@@ -6,7 +6,7 @@
 /*   By: fyusuf-a <fyusuf-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:51:16 by fyusuf-a          #+#    #+#             */
-/*   Updated: 2020/06/15 18:23:51 by fyusuf-a         ###   ########.fr       */
+/*   Updated: 2020/07/18 10:34:05 by fyusuf-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,13 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void*),
 /*
 ** Additional
 */
-int			ft_strcmp(const char *str1, const char *str2);
-int			ft_atoi_strict(const char *str);
-int			ft_elem(char c, const char *str);
-int			ft_min(int x, int y);
-int			ft_max(int x, int y);
-int			ft_abs(int x);
-int			ft_lstadd_front_elem(t_list **alst, void *data);
-int			ft_lstadd_back_elem(t_list **alst, void *data);
+int					ft_strcmp(const char *str1, const char *str2);
+int					ft_atoi_strict(const char *str);
+int					ft_elem(char c, const char *str);
+int					ft_min(int x, int y);
+int					ft_max(int x, int y);
+int					ft_abs(int x);
+int					ft_lstadd_front_elem(t_list **alst, void *data);
+int					ft_lstadd_back_elem(t_list **alst, void *data);
 
 #endif
